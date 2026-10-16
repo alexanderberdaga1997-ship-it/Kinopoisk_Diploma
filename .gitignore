@@ -1,0 +1,18 @@
+# Виртуальное окружение
+.venv/
+
+# Служебные файлы Python и pytest
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Результаты автоматизации
+allure-results/
+allure-report/
+
+# Секреты и локальные настройки
+.env
+.env.*
+!.env.example
+.ruff_cache/ 
+*.bak
