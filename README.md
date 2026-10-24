@@ -122,7 +122,7 @@ allure serve allure-results
 
 ## Ссылка на диплом в Yonote
 
-***Итоговый дипломный проект Skypro в Yonote:**
+**Итоговый дипломный проект Skypro в Yonote:**
 
 https://berdagaa123001.yonote.ru/share/f75c2450-d3ab-4131-b063-d98fb65c5424
 
