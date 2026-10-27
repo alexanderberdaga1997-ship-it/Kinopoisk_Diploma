@@ -1,3 +1,4 @@
+
 import allure
 import pytest
 import requests
@@ -11,7 +12,8 @@ from config import API_TOKEN, BASE_URL
 def test_get_movies_list() -> None:
     """Проверка успешного получения списка фильмов."""
 
-    assert API_TOKEN, "Не задана переменная KINOPOISK_API_TOKEN"
+    with allure.step("Проверить наличие API-токена в конфигурации"):
+        assert API_TOKEN, "Не задана переменная KINOPOISK_API_TOKEN"
 
     with allure.step("Отправить GET-запрос для получения фильмов"):
         response = requests.get(
@@ -25,13 +27,11 @@ def test_get_movies_list() -> None:
 
     with allure.step("Проверить наличие фильмов в ответе"):
         data = response.json()
-
         assert isinstance(data.get("docs"), list)
         assert len(data["docs"]) > 0
 
     with allure.step("Проверить данные первого фильма"):
         first_movie = data["docs"][0]
-
         assert first_movie.get("id") is not None
         assert first_movie.get("name")
 
@@ -46,7 +46,8 @@ def test_get_movies_list() -> None:
 def test_get_movie_by_id() -> None:
     """Проверка получения фильма «1+1» по ID."""
 
-    assert API_TOKEN, "Не задана переменная KINOPOISK_API_TOKEN"
+    with allure.step("Проверить наличие API-токена в конфигурации"):
+        assert API_TOKEN, "Не задана переменная KINOPOISK_API_TOKEN"
 
     with allure.step("Отправить GET-запрос для фильма с ID 535341"):
         response = requests.get(
@@ -75,7 +76,8 @@ def test_get_movie_by_id() -> None:
 def test_search_movie_by_title() -> None:
     """Проверка поиска фильма «Матрица»."""
 
-    assert API_TOKEN, "Не задана переменная KINOPOISK_API_TOKEN"
+    with allure.step("Проверить наличие API-токена в конфигурации"):
+        assert API_TOKEN, "Не задана переменная KINOPOISK_API_TOKEN"
 
     with allure.step("Найти фильмы по запросу «матрица»"):
         response = requests.get(
